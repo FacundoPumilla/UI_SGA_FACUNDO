@@ -9,10 +9,12 @@ import {MatTableModule} from '@angular/material/table';
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { PersonaListComponent } from './core/components/persona/persona-list/persona-list.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PersonaListComponent
   ],
   imports: [
     BrowserModule,
