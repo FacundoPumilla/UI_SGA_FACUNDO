@@ -15,7 +15,7 @@ export class PersonaService {
   ) {}
 
     
-  //METODO listar todas las persona
+  //METODO listar todas las personas
   findAll(): Observable<Persona[]> {
     return this.http.get(this.apiUrl)
     .pipe(
