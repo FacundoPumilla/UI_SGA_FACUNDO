@@ -10,6 +10,8 @@ import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { PersonaListComponent } from './core/components/persona/persona-list/persona-list.component';
+import { HttpClientModule } from '@angular/common/http';
+import { PersonaService } from './core/services/persona.service';
 
 @NgModule({
   declarations: [
@@ -20,9 +22,10 @@ import { PersonaListComponent } from './core/components/persona/persona-list/per
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTableModule, MatInputModule, MatButtonModule, MatFormFieldModule
+    MatTableModule, MatInputModule, MatButtonModule, MatFormFieldModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [PersonaService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
