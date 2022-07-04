@@ -24,12 +24,10 @@ export class PersonaService {
     );
   }
   findById(id: number): Observable<PersonaFull>{
-    console.log(this.apiUrl+id);
     var result = this.http.get(this.apiUrl+id)
       .pipe(
         map((response: any) => response as PersonaFull)
       );
-      console.log(result);
       return result;
     
   }
@@ -41,5 +39,26 @@ export class PersonaService {
     const path = this.apiUrl + id;
     return this.http.put<any>(path, id);
   }
+//   GetUser(id:number) {
+//     try {
+//       const response = this.http.get(this.apiUrl+id);
 
+//       if(!response.ok){
+//         throw new Error(`Error! Status: ${response.status}`);
+//       }
+//       const result = (await response.json()) as PersonaFull;
+//       console.log('result is: ', JSON.stringify(result, null, 4));
+//       return result;
+
+//     } catch (error) {
+//       if(error instanceof Error){
+//         console.log('error message: ', error.message);
+//         return error.message;
+//       }else{
+//         console.log('unexpected error: ', error);
+//         return 'An unexpected error occurred';
+//       }
+//     }
+//   }
+// GetUser();
 }
