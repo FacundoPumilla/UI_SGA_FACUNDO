@@ -1,0 +1,11 @@
+mat-card-title {
+    justify-content: center;
+    display: flex;
+}
+mat-card-actions{
+    justify-content: center;
+    display: flex;
+}
+#estadio{
+    text-align: center;
+}
