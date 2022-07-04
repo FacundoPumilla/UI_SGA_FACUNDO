@@ -15,21 +15,23 @@ export class PersonaDialogComponent implements OnInit {
 
   constructor(
     public dialogRef: MatDialogRef<PersonaDialogComponent>,
-    @Inject(MAT_DIALOG_DATA) public id: number,
-    private personaService: PersonaService,
+    @Inject(MAT_DIALOG_DATA)
+      public id: number,
+      private personaService: PersonaService,
   ) { }
 
   ngOnInit(): void {
     this.findByIdDialog(this.id);
   }
   save(){
-
+    
   }
   cancel(){
-
+    this.dialogRef.close();
   }
   findByIdDialog(id: number): any{
-    this.personaService.findById(id).subscribe(
+    this.personaService.findById(id)
+    .subscribe(
       (response: any) => {
         this.persona = response as PersonaFull;
         this.resolverEstado(this.persona.estado);
