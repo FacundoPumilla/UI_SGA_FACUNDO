@@ -3,6 +3,7 @@ import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Persona } from 'src/app/model/persona';
+import { PersonaFull } from 'src/app/model/personaFull';
 
 @Injectable({
   providedIn: 'root'
@@ -18,5 +19,13 @@ export class PersonaService {
     return this.http.get(this.apiUrl).pipe(
       map((response:any)=> response as Persona[])
     )
+  }
+  findById(id: number): Observable<PersonaFull>{
+    var result = this.http.get(this.apiUrl+id)
+      .pipe(
+        map((response: any) => response as PersonaFull)
+      );
+      return result;
+    
   }
 }

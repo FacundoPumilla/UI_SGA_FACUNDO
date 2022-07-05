@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { PersonaService } from 'src/app/core/services/persona.service';
 import { Persona } from 'src/app/model/persona';
+import { PersonaDialogComponent } from '../persona-dialog/persona-dialog.component';
 
 @Component({
   selector: 'app-persona-list',
@@ -12,6 +14,7 @@ export class PersonaListComponent implements OnInit {
   displayedColumns: string[] = ['id','nombre','apellido', 'dni'];
 
   constructor(
+    public dialog: MatDialog,
     private personaServices: PersonaService
   ) { }
 
@@ -24,5 +27,18 @@ export class PersonaListComponent implements OnInit {
       console.log(this.personaList);
     })
   }
+
+  edit(id: number){
+    const dialogEdit = this.dialog.open(PersonaDialogComponent, {
+      disableClose: false,
+      width: 'auto',
+      data: id
+    });
+    
+  }
+  delete(id: number){
+
+  }
+
 
 }
