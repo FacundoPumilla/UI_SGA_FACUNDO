@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { PersonaComponent } from './persona.component';
+import { PersonaDialogComponent } from './persona-dialog.component';
 
-describe('PersonaComponent', () => {
-  let component: PersonaComponent;
-  let fixture: ComponentFixture<PersonaComponent>;
+describe('PersonaDialogComponent', () => {
+  let component: PersonaDialogComponent;
+  let fixture: ComponentFixture<PersonaDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PersonaComponent ]
+      declarations: [ PersonaDialogComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(PersonaComponent);
+    fixture = TestBed.createComponent(PersonaDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

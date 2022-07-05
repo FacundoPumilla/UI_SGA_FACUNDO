@@ -2,9 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { PersonaService } from 'src/app/core/services/persona.service';
 import { Persona } from 'src/app/model/persona';
-import { PersonaFull } from 'src/app/model/personaFull';
 import { PersonaDialogComponent } from '../persona-dialog/persona-dialog.component';
-import { PersonaComponent } from '../persona/persona.component';
 
 @Component({
   selector: 'app-persona-list',
@@ -27,10 +25,12 @@ export class PersonaListComponent implements OnInit {
   
   
   getAllPersonaList(): void{
-    this.personaService.findAll().subscribe( (response: any) => {
+    this.personaService.findAll()
+    .subscribe(
+      (response: any) => {
       this.personaList = response as Persona[];
-      console.log(this.personaList); 
-    })
+      }
+    )
   }
   
   edit(id: number){
