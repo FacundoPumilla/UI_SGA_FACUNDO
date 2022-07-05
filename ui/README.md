@@ -1,10 +1,11 @@
-- [ ] Hacer endpoint busqueda por DNI
+- [ ] Hacer endPoint busqueda por DNI
 - [ ] Hacer endPoint busqueda por codigo de chip
+- [ ] Revisar endPoint GetAllChip(), definir si **codigoId** es el _Id_ del chip y si **codigo** _codigo_ propiamente dicho.
 
 
 # Ui
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
+Esta proyecto fue generado con [Angular CLI](https://github.com/angular/angular-cli) version 14.0.4.
 
 ## Development server
 
