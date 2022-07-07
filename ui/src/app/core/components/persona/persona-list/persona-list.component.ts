@@ -11,7 +11,7 @@ import { PersonaDialogComponent } from '../persona-dialog/persona-dialog.compone
 })
 export class PersonaListComponent implements OnInit {
   personaList:Persona[];
-  displayedColumns: string[] = ['id','nombre','apellido', 'dni'];
+  displayedColumns: string[] = ['id','nombre','apellido', 'dni','acciones'];
 
   constructor(
     public dialog: MatDialog,
@@ -34,7 +34,7 @@ export class PersonaListComponent implements OnInit {
       width: 'auto',
       data: id
     });
-    
+
   }
   delete(id: number){
 
