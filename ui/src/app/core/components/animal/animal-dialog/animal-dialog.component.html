@@ -1,0 +1,142 @@
+<mat-tab-group>
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">pets</mat-icon>
+      Datos del Animal
+    </ng-template>
+    <!--Contenido del tab1-->
+    <mat-card>
+      <mat-card-subtitle>Detalle</mat-card-subtitle>
+      <mat-card-content>
+        <p>
+          <!-- Nombre -->
+          <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="animal.nombre" placeholder="Nombre" />
+          </mat-form-field>
+          <!-- Especie -->
+          <mat-form-field appearance="legacy">
+            <input
+              matInput
+              [(ngModel)]="animal.especieId"
+              placeholder="Especie"
+            />
+          </mat-form-field>
+        </p>
+        <p>
+          <!-- Fecha De Nacimiento -->
+          <mat-form-field appearance="legacy">
+            <input
+              matInput
+              [(ngModel)]="animal.fechaNacimiento"
+              placeholder="Fecha de Nacimiento"
+            />
+          </mat-form-field>
+
+          <!-- Sexo -->
+          <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="animal.sexo" placeholder="Sexo" />
+          </mat-form-field>
+        </p>
+        <p>
+          <!--Pelaje -->
+          <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="animal.pelaje" placeholder="Pelaje" />
+          </mat-form-field>
+          <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="animal.link" placeholder="Link" />
+          </mat-form-field>
+        </p>
+        <p>
+          <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="animal.ambito" placeholder="Ambito" />
+          </mat-form-field>
+          <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="animal.uso" placeholder="Uso" />
+          </mat-form-field>
+        </p>
+        <p>
+          <button
+            mat-stroked-button
+            (click)="detallePersona(animal.personaId)"
+            placeholder="Dueño"
+          >
+            <mat-icon>face</mat-icon> Dueño
+          </button>
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="cancel()">
+          Volver
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">face</mat-icon>
+      Datos Persona
+    </ng-template>
+    <!--ContenidoMatTab 2-->
+    <mat-card>
+      <mat-card-subtitle>Detalle</mat-card-subtitle>
+      <!--Contenido de persona-->
+      <mat-card-content>
+        <p>
+          <!-- Nombre -->
+          <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="duenio.nombre" placeholder="Nombre" />
+          </mat-form-field>
+
+          <!-- Apellido -->
+          <mat-form-field appearance="legacy">
+            <input
+              matInput
+              [(ngModel)]="duenio.apellido"
+              placeholder="Apellido"
+            />
+          </mat-form-field>
+        </p>
+        <p>
+          <!-- Dni -->
+          <mat-form-field appearance="legacy">
+            <input matInput [(ngModel)]="duenio.dni" placeholder="DNI" />
+          </mat-form-field>
+          <mat-form-field appearance="legacy">
+            <input
+              matInput
+              [(ngModel)]="duenio.contactoDTO.telefono1"
+              placeholder="Telefono1"
+            />
+          </mat-form-field>
+        </p>
+
+        <p>
+          <!-- Mail -->
+          <mat-form-field appearance="legacy">
+            <input
+              matInput
+              [(ngModel)]="duenio.contactoDTO.mail"
+              placeholder="Mail"
+            />
+          </mat-form-field>
+        </p>
+      </mat-card-content>
+
+      <mat-card-actions>
+        <button mat-raised-button color="primary" (click)="cancel()">Volver</button>
+      </mat-card-actions>
+    </mat-card>
+    <!--Fin de contenido de persona-->
+  </mat-tab>
+
+  <mat-tab>
+    <ng-template mat-tab-label>
+      <mat-icon class="example-tab-icon">memory</mat-icon>
+      Datos Chip
+    </ng-template>
+
+    Content 3
+  </mat-tab>
+</mat-tab-group>
