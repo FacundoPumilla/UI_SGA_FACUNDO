@@ -29,7 +29,6 @@ export class AnimalService {
         map((response: any) => response as AnimalFull)
       );
       return result;
-
   }
   updateOurUpdate(animal: Animal): Observable<any>{
     const path = this.apiUrl+ "Update";
