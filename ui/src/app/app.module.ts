@@ -15,6 +15,9 @@ import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatListModule} from '@angular/material/list';
+import {MatToolbarModule} from '@angular/material/toolbar';
 
 //Entidad Persona
 import { PersonaListComponent } from './core/components/persona/persona-list/persona-list.component';
@@ -28,6 +31,9 @@ import { AnimalDialogComponent } from './core/components/animal/animal-dialog/an
 
 import { ChipDialogComponent } from './core/components/chip/chip-dialog/chip-dialog.component';
 import { ChipListComponent } from './core/components/chip/chip-list/chip-list.component';
+import { MenuItems } from './shared/model/menu-items/menuItems';
+import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
+import { HomeComponent } from './shared/components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -37,7 +43,9 @@ import { ChipListComponent } from './core/components/chip/chip-list/chip-list.co
     AnimalListComponent,
     AnimalDialogComponent,
     ChipDialogComponent,
-    ChipListComponent
+    ChipListComponent,
+    SidenavComponent,
+    HomeComponent
 
   ],
   imports: [
@@ -52,11 +60,15 @@ import { ChipListComponent } from './core/components/chip/chip-list/chip-list.co
     MatDialogModule,
     MatIconModule,
     MatCardModule,
+    MatListModule,
+    MatSidenavModule,
+    
+    MatToolbarModule,
     FormsModule,
     MatCheckboxModule,
     MatTabsModule
   ],
-  providers: [PersonaService,AnimalService],
+  providers: [PersonaService,AnimalService,MenuItems ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
