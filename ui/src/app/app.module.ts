@@ -13,7 +13,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card'; 
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 //Entidad Persona
 import { PersonaListComponent } from './core/components/persona/persona-list/persona-list.component';
 import { PersonaService } from './core/services/persona.service';
@@ -41,7 +40,6 @@ import { ChipService } from './core/services/chip.service';
     MatIconModule,
     MatCardModule,
     FormsModule,
-    MatCheckboxModule
   ],
   providers: [
     PersonaService,

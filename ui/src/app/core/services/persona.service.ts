@@ -18,25 +18,28 @@ export class PersonaService {
     
   //METODO listar todas las persona
   findAll(): Observable<Persona[]> {
-    return this.http.get(this.apiUrl)
-    .pipe(
+    return this.http.get(this.apiUrl).pipe(
       map((response: any) => response as Persona[])
     );
   }
   findById(id: number): Observable<PersonaFull>{
-    var result = this.http.get(this.apiUrl+id)
-      .pipe(
-        map((response: any) => response as PersonaFull)
-      );
-      return result;
-    
+    let path = this.apiUrl + id;
+    return this.http.get(path).pipe(
+      map((response: any) => response as PersonaFull)
+    );
+  }
+  findByDni(dni: string): Observable<PersonaFull>{
+    let path = this.apiUrl + 'dni/';
+    return this.http.get(path+dni).pipe(
+      map((response: any) => response as PersonaFull)
+    );
   }
   updateOurUpdate(persona: Persona): Observable<any>{
-    const path = this.apiUrl+ "Update";
+    let path = this.apiUrl + "Update";
     return this.http.put<any>(path, persona);
   }
   delete(id: number): Observable<any>{
-    const path = this.apiUrl + id;
+    let path = this.apiUrl + id;
     return this.http.put<any>(path, id);
   }
 //   GetUser(id:number) {
