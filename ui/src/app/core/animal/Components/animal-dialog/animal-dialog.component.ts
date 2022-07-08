@@ -1,13 +1,16 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {  MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { AnimalService } from 'src/app/core/services/animal.service';
-import { ChipService } from 'src/app/core/services/chip.service';
-import { PersonaService } from 'src/app/core/services/persona.service';
-import { AnimalFull } from 'src/app/model/animalFull';
-import { Chip } from 'src/app/model/chip';
-import { ChipFull } from 'src/app/model/chipFull';
-import { PersonaFull } from 'src/app/model/personaFull';
-import { PersonaDialogComponent } from '../../persona/persona-dialog/persona-dialog.component';
+import { ChipFull } from 'src/app/core/chip/models/chipFull';
+import { ChipService } from 'src/app/core/chip/Services/chip.service';
+import { PersonaDialogComponent } from 'src/app/core/persona/Components/persona-dialog/persona-dialog.component';
+
+
+
+
+import { PersonaFull } from 'src/app/core/persona/model/personaFull';
+import { PersonaService } from 'src/app/core/persona/Services/persona.service';
+import { AnimalFull } from '../../Models/animalFull';
+import { AnimalService } from '../../Services/animal.service';
 
 @Component({
   selector: 'app-animal-dialog',

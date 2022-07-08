@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { PersonaService } from 'src/app/core/services/persona.service';
-import { PersonaFull } from 'src/app/model/personaFull';
+import { PersonaFull } from 'src/app/core/persona/model/personaFull';
+import { PersonaService } from '../../Services/persona.service';
 
 @Component({
   selector: 'app-persona-dialog',
@@ -24,7 +24,7 @@ export class PersonaDialogComponent implements OnInit {
     this.findByIdDialog(this.id);
   }
   save(){
-    
+
   }
   cancel(){
     this.dialogRef.close();
@@ -42,7 +42,7 @@ export class PersonaDialogComponent implements OnInit {
     console.log(estado);
     if(estado) {
       this.estado = "ACTIVO";
-    } 
+    }
     else{
       this.estado = "INACTIVO";
     }

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PersonaService } from 'src/app/core/services/persona.service';
-import { Persona } from 'src/app/model/persona';
+import { Persona } from 'src/app/core/persona/model/persona';
+import { PersonaService } from '../../Services/persona.service';
 import { PersonaDialogComponent } from '../persona-dialog/persona-dialog.component';
 
 @Component({

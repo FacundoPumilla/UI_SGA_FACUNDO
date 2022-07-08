@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { ChipService } from 'src/app/core/services/chip.service';
-import { Chip } from 'src/app/model/chip';
-import { AnimalDialogComponent } from '../../animal/animal-dialog/animal-dialog.component';
+import { AnimalDialogComponent } from 'src/app/core/animal/Components/animal-dialog/animal-dialog.component';
+
+import { Chip } from '../../models/chip';
+import { ChipService } from '../../Services/chip.service';
 
 @Component({
   selector: 'app-chip-list',

@@ -1,9 +1,9 @@
 import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
-import { Animal } from 'src/app/model/animal';
-import { AnimalFull } from 'src/app/model/animalFull';
+import { Animal } from 'src/app/core/animal/Models/animal';
+import { environment } from 'src/environments/environment';
+import { AnimalFull } from '../Models/animalFull';
 
 @Injectable({
   providedIn: 'root'

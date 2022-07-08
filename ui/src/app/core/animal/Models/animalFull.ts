@@ -1,5 +1,5 @@
-import { Persona } from "./persona";
-import { PersonaFull } from "./personaFull";
+import { PersonaFull } from "../../persona/model/personaFull";
+
 
 export class AnimalFull {
   id: number
