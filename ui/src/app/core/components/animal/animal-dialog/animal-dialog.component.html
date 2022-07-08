@@ -125,7 +125,9 @@
       </mat-card-content>
 
       <mat-card-actions>
-        <button mat-raised-button color="primary" (click)="cancel()">Volver</button>
+        <button mat-raised-button color="primary" (click)="cancel()">
+          Volver
+        </button>
       </mat-card-actions>
     </mat-card>
     <!--Fin de contenido de persona-->
@@ -137,6 +139,17 @@
       Datos Chip
     </ng-template>
 
-    Content 3
+    <mat-card>
+      <mat-card-subtitle>Detalle</mat-card-subtitle>
+      <mat-card-content>
+        <!-- Codigo -->
+        <div>
+          <h1>Codigo de Chip </h1>
+          <p class="codigoChip">{{ chip.codigo }}</p>
+          <h3>Fecha de Chipeo</h3>
+          <p>{{chip.fechaDeChipeo|date}}</p>
+        </div>
+      </mat-card-content>
+    </mat-card>
   </mat-tab>
 </mat-tab-group>

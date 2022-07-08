@@ -1,8 +1,11 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {  MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AnimalService } from 'src/app/core/services/animal.service';
+import { ChipService } from 'src/app/core/services/chip.service';
 import { PersonaService } from 'src/app/core/services/persona.service';
 import { AnimalFull } from 'src/app/model/animalFull';
+import { Chip } from 'src/app/model/chip';
+import { ChipFull } from 'src/app/model/chipFull';
 import { PersonaFull } from 'src/app/model/personaFull';
 import { PersonaDialogComponent } from '../../persona/persona-dialog/persona-dialog.component';
 
@@ -15,6 +18,7 @@ export class AnimalDialogComponent implements OnInit {
 
   animal: AnimalFull;
   duenio:PersonaFull;
+  chip:ChipFull;
   estado: string = "VACIO";
 
   constructor(
@@ -24,7 +28,8 @@ export class AnimalDialogComponent implements OnInit {
     @Inject(MAT_DIALOG_DATA)
       public ids: any[],
       private animalService: AnimalService,
-      private personaService: PersonaService
+      private personaService: PersonaService,
+      private chipService: ChipService
 
   ) { }
 
@@ -52,6 +57,12 @@ export class AnimalDialogComponent implements OnInit {
         (response: any) => {
           this.duenio = response as PersonaFull;
           console.log(this.duenio)
+        }
+      );
+      this.chipService.findCodigoByAnimal(ids[0])
+      .subscribe(
+        (response: any) => {
+          this.chip = response as ChipFull;
         }
       )
 
