@@ -1,4 +1,5 @@
-import { PersonaFull } from "../../persona/model/personaFull";
+import { PersonaFull } from "src/app/model/personaFull";
+
 
 
 export class AnimalFull {

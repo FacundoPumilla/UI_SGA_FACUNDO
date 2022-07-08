@@ -18,6 +18,17 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import { PersonaListComponent } from './core/persona/Components/persona-list/persona-list.component';
+import { PersonaDialogComponent } from './core/persona/Components/persona-dialog/persona-dialog.component';
+import { AnimalListComponent } from './core/animal/Components/animal-list/animal-list.component';
+import { AnimalDialogComponent } from './core/animal/Components/animal-dialog/animal-dialog.component';
+import { ChipDialogComponent } from './core/chip/Components/chip-dialog/chip-dialog.component';
+import { ChipListComponent } from './core/chip/Components/chip-list/chip-list.component';
+import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
+import { HomeComponent } from './shared/components/home/home.component';
+import { PersonaService } from './core/persona/Services/persona.service';
+import { AnimalService } from './core/animal/Services/animal.service';
+import { MenuItems } from './shared/model/menu-items/menuItems';
 
 //Entidad Persona
 
@@ -25,17 +36,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 
 //Entidad Animal
 
-import { MenuItems } from './shared/model/menu-items/menuItems';
-import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
-import { HomeComponent } from './shared/components/home/home.component';
-import { AnimalListComponent } from './core/animal/Components/animal-list/animal-list.component';
-import { AnimalDialogComponent } from './core/animal/Components/animal-dialog/animal-dialog.component';
-import { ChipDialogComponent } from './core/chip/Components/chip-dialog/chip-dialog.component';
-import { ChipListComponent } from './core/chip/Components/chip-list/chip-list.component';
-import { PersonaService } from './core/persona/Services/persona.service';
-import { AnimalService } from './core/animal/Services/animal.service';
-import { PersonaDialogComponent } from './core/persona/Components/persona-dialog/persona-dialog.component';
-import { PersonaListComponent } from './core/persona/Components/persona-list/persona-list.component';
+
 
 @NgModule({
   declarations: [

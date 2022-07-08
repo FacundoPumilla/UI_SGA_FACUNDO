@@ -7,8 +7,9 @@ import { PersonaDialogComponent } from 'src/app/core/persona/Components/persona-
 
 
 
-import { PersonaFull } from 'src/app/core/persona/model/personaFull';
+
 import { PersonaService } from 'src/app/core/persona/Services/persona.service';
+import { PersonaFull } from 'src/app/model/personaFull';
 import { AnimalFull } from '../../Models/animalFull';
 import { AnimalService } from '../../Services/animal.service';
 
