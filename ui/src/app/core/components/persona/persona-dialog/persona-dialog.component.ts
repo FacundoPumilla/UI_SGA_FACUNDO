@@ -1,5 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatSlideToggle, MatSlideToggleChange } from '@angular/material/slide-toggle';
+import { MatTab } from '@angular/material/tabs';
 import { PersonaService } from 'src/app/core/services/persona.service';
 import { PersonaFull } from 'src/app/model/personaFull';
 
@@ -22,9 +24,26 @@ export class PersonaDialogComponent implements OnInit {
 
   ngOnInit(): void {
     this.findByIdDialog(this.id);
+    
   }
   save(){
-    
+  }
+  estadoChange($event: MatSlideToggleChange){
+    this.persona.estado = !this.persona.estado;
+    this.resolverEstado(this.persona.estado);
+    console.log($event);
+  }
+  editar(){
+    let btnEstado = <HTMLButtonElement>document.getElementById('estado');
+    btnEstado.removeAttribute('disabled');
+    let btnEditar = <HTMLButtonElement>document.getElementById('editar');
+    btnEditar.style.display = 'none';
+    let btnGuardar = <HTMLButtonElement>document.getElementById('guardar');
+    btnGuardar.style.display = 'inline';
+    let input = document.querySelectorAll('input');
+    input?.forEach(function(inp) {
+      inp.removeAttribute('readonly');
+    });
   }
   cancel(){
     this.dialogRef.close();
@@ -46,6 +65,5 @@ export class PersonaDialogComponent implements OnInit {
     else{
       this.estado = "INACTIVO";
     }
-    console.log(this.estado);
   }
 }

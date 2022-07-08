@@ -18,6 +18,7 @@ import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
 import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 //Entidad Persona
 import { PersonaListComponent } from './core/components/persona/persona-list/persona-list.component';
@@ -62,6 +63,7 @@ import { HomeComponent } from './shared/components/home/home.component';
     MatCardModule,
     MatListModule,
     MatSidenavModule,
+    MatSlideToggleModule,
     
     MatToolbarModule,
     FormsModule,
