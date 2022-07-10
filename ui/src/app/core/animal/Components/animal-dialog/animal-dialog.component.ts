@@ -27,7 +27,6 @@ export class AnimalDialogComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-
     public dialogRef: MatDialogRef<AnimalDialogComponent>,
     @Inject(MAT_DIALOG_DATA)
       public ids: any[],

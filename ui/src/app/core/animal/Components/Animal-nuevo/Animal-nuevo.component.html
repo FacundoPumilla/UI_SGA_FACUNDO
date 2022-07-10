@@ -1,0 +1,56 @@
+<mat-card>
+  <mat-card-subtitle>Detalle</mat-card-subtitle>
+  <mat-card-content>
+    <form (ngSubmit)="agregar(  )">
+      <p>
+        <!-- Nombre -->
+        <mat-form-field appearance="legacy">
+          <mat-label>Nombre</mat-label>
+          <input matInput  placeholder="Nombre" [value]="nuevoAnimal.nombre"/>
+
+        </mat-form-field>
+        <!-- Especie -->
+        <mat-form-field appearance="legacy">
+          <mat-label>Especie</mat-label>
+          <input matInput placeholder="Especie" [value]="nuevoAnimal.especieId"/>
+        </mat-form-field>
+      </p>
+      <p>
+        <!-- Fecha De Nacimiento -->
+        <mat-form-field appearance="legacy">
+          <mat-label>Edad Estimada </mat-label>
+          <input type="number" matInput [value]=""/>
+        </mat-form-field>
+
+        <!-- Sexo -->
+        <mat-form-field appearance="legacy">
+        <mat-label>Pelaje</mat-label>
+        <mat-select>
+          <mat-option value="">Selleccione un Pelaje</mat-option>
+          <mat-option *ngFor="let pelaje of pelajes"
+                      [value]="pelaje |lowercase">{{ pelaje }}</mat-option>
+
+        </mat-select>
+      </mat-form-field>
+      </p>
+      <p>
+        <!--Pelaje -->
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Pelaje" />
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Link" />
+        </mat-form-field>
+      </p>
+      <p>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Ambito" />
+        </mat-form-field>
+        <mat-form-field appearance="legacy">
+          <input matInput placeholder="Uso" />
+        </mat-form-field>
+      </p>
+      <button type="submit">Agregar</button>
+    </form>
+  </mat-card-content>
+</mat-card>

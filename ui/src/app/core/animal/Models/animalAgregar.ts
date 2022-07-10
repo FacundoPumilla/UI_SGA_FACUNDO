@@ -1,8 +1,7 @@
 import { PersonaFull } from "src/app/model/personaFull";
 
 
-
-export class AnimalFull {
+export class AnimalAgregar {
   id: number
   nombre: string;
   especieId: number;
@@ -14,6 +13,6 @@ export class AnimalFull {
   ambito: string;
   uso: string;
   personaId: number;
-  estado: boolean;
-  personaDTO: PersonaFull;
 }
+
+

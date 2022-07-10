@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -29,6 +29,8 @@ import { HomeComponent } from './shared/components/home/home.component';
 import { PersonaService } from './core/persona/Services/persona.service';
 import { AnimalService } from './core/animal/Services/animal.service';
 import { MenuItems } from './shared/model/menu-items/menuItems';
+import { AnimalNuevoComponent } from './core/animal/Components/Animal-nuevo/Animal-nuevo.component';
+import { MatSelectModule } from '@angular/material/select';
 
 //Entidad Persona
 
@@ -45,6 +47,7 @@ import { MenuItems } from './shared/model/menu-items/menuItems';
     PersonaDialogComponent,
     AnimalListComponent,
     AnimalDialogComponent,
+    AnimalNuevoComponent,
     ChipDialogComponent,
     ChipListComponent,
     SidenavComponent,
@@ -59,6 +62,9 @@ import { MenuItems } from './shared/model/menu-items/menuItems';
     MatInputModule,
     MatButtonModule,
     MatFormFieldModule,
+    FormsModule,
+    ReactiveFormsModule,
+    MatSelectModule,
     HttpClientModule,
     MatDialogModule,
     MatIconModule,
