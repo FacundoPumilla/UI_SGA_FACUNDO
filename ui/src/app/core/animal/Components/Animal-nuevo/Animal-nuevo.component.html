@@ -1,53 +1,60 @@
 <mat-card>
   <mat-card-subtitle>Detalle</mat-card-subtitle>
   <mat-card-content>
-    <form (ngSubmit)="agregar(  )">
+    <form [formGroup]="miformulario" (ngSubmit)="agregar(  )">
       <p>
         <!-- Nombre -->
         <mat-form-field appearance="legacy">
           <mat-label>Nombre</mat-label>
-          <input matInput  placeholder="Nombre" [value]="nuevoAnimal.nombre"/>
+          <input matInput formControlName="nombre" placeholder="Nombre" [value]="nuevoAnimal.nombre"/>
 
         </mat-form-field>
         <!-- Especie -->
         <mat-form-field appearance="legacy">
           <mat-label>Especie</mat-label>
-          <input matInput placeholder="Especie" [value]="nuevoAnimal.especieId"/>
+          <input matInput formControlName="especieId" placeholder="Especie" [value]="nuevoAnimal.especieId"/>
         </mat-form-field>
       </p>
       <p>
         <!-- Fecha De Nacimiento -->
         <mat-form-field appearance="legacy">
           <mat-label>Edad Estimada </mat-label>
-          <input type="number" matInput [value]=""/>
+          <input type="number" matInput formControlName="fechaNacimiento" [value]="nuevoAnimal.especieId"/>
         </mat-form-field>
-
         <!-- Sexo -->
         <mat-form-field appearance="legacy">
+          <mat-label>Sexo</mat-label>
+          <mat-select formControlName="sexo">
+            <mat-option value="">Selleccione un Sexo</mat-option>
+            <mat-option *ngFor="let sexo of sexos"
+            [value]="sexo |lowercase">{{ sexo }}</mat-option>
+
+          </mat-select>
+        </mat-form-field>
+
+      </p>
+      <p><!-- Pelajes -->
+        <mat-form-field appearance="legacy">
         <mat-label>Pelaje</mat-label>
-        <mat-select>
+        <mat-select formControlName="pelaje">
           <mat-option value="">Selleccione un Pelaje</mat-option>
           <mat-option *ngFor="let pelaje of pelajes"
-                      [value]="pelaje |lowercase">{{ pelaje }}</mat-option>
+          [value]="pelaje |lowercase">{{ pelaje }}</mat-option>
 
         </mat-select>
-      </mat-form-field>
-      </p>
+      </mat-form-field></p>
       <p>
-        <!--Pelaje -->
+
         <mat-form-field appearance="legacy">
-          <input matInput placeholder="Pelaje" />
-        </mat-form-field>
-        <mat-form-field appearance="legacy">
-          <input matInput placeholder="Link" />
+          <input formControlName="link" matInput placeholder="Link" />
         </mat-form-field>
       </p>
       <p>
         <mat-form-field appearance="legacy">
-          <input matInput placeholder="Ambito" />
+          <input matInput formControlName="ambito" placeholder="Ambito" />
         </mat-form-field>
         <mat-form-field appearance="legacy">
-          <input matInput placeholder="Uso" />
+          <input matInput formControlName="uso" placeholder="Uso" />
         </mat-form-field>
       </p>
       <button type="submit">Agregar</button>

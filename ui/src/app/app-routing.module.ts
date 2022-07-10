@@ -8,7 +8,7 @@ import { PersonaListComponent } from './core/persona/Components/persona-list/per
 const routes: Routes = [
   { path:'personas', component:PersonaListComponent},
   { path:'animales', component:AnimalListComponent },
-  { path:'animales/nuevo', component:AnimalNuevoComponent },
+  { path:'animal/nuevo', component:AnimalNuevoComponent },
   { path:'chips', component: ChipListComponent },
   { path:'**', redirectTo:''}
 

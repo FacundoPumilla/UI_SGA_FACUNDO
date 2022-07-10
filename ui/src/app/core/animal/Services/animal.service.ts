@@ -4,6 +4,7 @@ import { map, Observable } from 'rxjs';
 import { Animal } from 'src/app/core/animal/Models/animal';
 import { environment } from 'src/environments/environment';
 import { AnimalFull } from '../Models/animalFull';
+import { AnimalAgregar } from '../Models/animalAgregar';
 
 @Injectable({
   providedIn: 'root'
@@ -33,6 +34,12 @@ export class AnimalService {
   updateOurUpdate(animal: Animal): Observable<any>{
     const path = this.apiUrl+ "Update";
     return this.http.put<any>(path, animal);
+  }
+  agregar(animal: AnimalAgregar): void{
+    console.log("llego al servicio")
+    console.log(animal)
+    // const path = this.apiUrl+ "nuevo";
+    // return this.http.post<any>(path, animal);
   }
   delete(id: number): Observable<any>{
     const path = this.apiUrl + id;
