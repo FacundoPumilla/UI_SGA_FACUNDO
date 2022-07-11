@@ -1,88 +1,156 @@
 <mat-card>
-  <mat-card-title>Datos de la persona</mat-card-title>
-              <mat-card-subtitle>Editar</mat-card-subtitle>
-              <mat-card-content>
-                  <p>
-                      <!-- Nombre -->
-                      <mat-form-field appearance="legacy">
-                          <input matInput [(ngModel)] = "persona.nombre" placeholder="Nombre">
-                      </mat-form-field>
-                      <!-- Apellido -->
-                      <mat-form-field appearance="legacy">
-                          <input matInput [(ngModel)] = "persona.apellido" placeholder="Apellido">
-                      </mat-form-field>
-
-                  </p>
-                  <p>
-                  <!-- Dni -->
-                      <mat-form-field appearance="legacy">
-                          <input matInput [(ngModel)] = "persona.dni" placeholder="DNI">
-                      </mat-form-field>
-
-                  <!-- Sexo -->
-                      <mat-form-field appearance="legacy">
-                          <input matInput [(ngModel)] = "persona.sexo" placeholder="Sexo">
-                      </mat-form-field>
-                  </p>
-                  <p>
-                      <!-- Pais -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.pais" placeholder="Pais">
-                          </mat-form-field>
-
-                      <!-- Provincia -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.provincia" placeholder="Provincia">
-                          </mat-form-field>
-                  </p>
-                  <p>
-                      <!-- Departamento -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.departamento" placeholder="Departamento">
-                          </mat-form-field>
-
-                      <!-- Localidad -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.localidad" placeholder="Localidad">
-                          </mat-form-field>
-                  </p>
-                  <p>
-                      <!-- Calle -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.calle" placeholder="Calle">
-                          </mat-form-field>
-
-                      <!-- Numero -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.numero" placeholder="Numero">
-                          </mat-form-field>
-                  </p>
-                  <p>
-                      <!-- Telefono -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.telefono1" placeholder="Telefono1">
-                          </mat-form-field>
-
-                      <!-- Telefono -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.telefono2" placeholder="telefono2">
-                          </mat-form-field>
-                  </p>
-                  <p>
-                      <!-- Mail -->
-                          <mat-form-field appearance="legacy">
-                              <input matInput [(ngModel)] = "persona.contactoDTO.mail" placeholder="Mail">
-                          </mat-form-field>
-                      <!-- Estado -->
-                          <mat-form-field appearance="legacy" id="estadio" placeholder="Estado">
-                              <input matInput [(ngModel)] = "estado" disabled="true">
-                          </mat-form-field>
-                  </p>
-                  <p>{{persona.contactoDTO.contactoId}}</p>
-              </mat-card-content>
-
-  <mat-card-actions>
-    <button mat-button (click)="save()">GUARDAR</button>
-    <button mat-button (click)="cancel()">CANCELAR</button>
-  </mat-card-actions>
+    <mat-card-content>
+        
+        <mat-tab-group animationDuration="1000ms">
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon"></mat-icon>
+                    Datos personales
+                </ng-template>
+                <mat-card class="contentCenter">
+                    <mat-card-content>
+                        <p>
+                        <!-- Apellido -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)] = "persona.apellido"
+                                placeholder="Apellido"
+                                readonly="true">
+                            </mat-form-field>
+                        <!-- Nombre -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)] = "persona.nombre"
+                                placeholder="Nombre"
+                                readonly="true">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                        <!-- Dni -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)] =  "persona.dni"
+                                placeholder="DNI"
+                                readonly="true">
+                            </mat-form-field>
+                        <!-- Sexo -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)] = "persona.sexo"
+                                placeholder="Sexo"
+                                readonly="true">
+                            </mat-form-field>
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon"></mat-icon>
+                    Direccion
+                </ng-template>
+                <mat-card class="contentCenter">
+                    <mat-card-content>
+                        <p>
+                        <!-- Pais -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)]="persona.contactoDTO.pais"
+                                placeholder="Pais"
+                                readonly="true">
+                            </mat-form-field>
+                        <!-- Provincia -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)]="persona.contactoDTO.provincia"
+                                placeholder="Provincia"
+                                readonly="true">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                        <!-- Departamento -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)]="persona.contactoDTO.departamento"
+                                placeholder="Departamento"
+                                readonly="true">
+                            </mat-form-field>
+                        <!-- Localidad -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)]="persona.contactoDTO.localidad"
+                                placeholder="Localidad"
+                                readonly="true">
+                            </mat-form-field>
+                        </p>
+                        <p>
+                        <!-- Calle -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)]="persona.contactoDTO.calle"
+                                placeholder="Calle"
+                                readonly="true">
+                            </mat-form-field>
+                        <!-- Numero -->
+                            <mat-form-field appearance="legacy">
+                                <input matInput
+                                [(ngModel)]="persona.contactoDTO.numero"
+                                placeholder="Numero"
+                                readonly="true">
+                            </mat-form-field>
+                        </p>
+                    </mat-card-content>
+                </mat-card>
+            </mat-tab>
+            <mat-tab>
+                <ng-template mat-tab-label>
+                    <mat-icon class="example-tab-icon"></mat-icon>
+                    Contacto
+                </ng-template>
+                <mat-card class="contentCenter">
+                    <mat-card-content>
+                        <p>
+                            <!-- Telefono -->
+                        <mat-form-field appearance="legacy">
+                            <input matInput
+                            [(ngModel)]="persona.contactoDTO.telefono1"
+                            placeholder="Telefono1"
+                            readonly="true">
+                        </mat-form-field>
+                        <!-- Telefono -->
+                        <mat-form-field appearance="legacy">
+                            <input matInput
+                            [(ngModel)]="persona.contactoDTO.telefono2"
+                            placeholder="telefono2"
+                            readonly="true">
+                        </mat-form-field>
+                    </p>
+                    <p>
+                        <!-- Mail -->
+                        <mat-form-field appearance="legacy">
+                            <input matInput
+                            [(ngModel)]="persona.contactoDTO.mail"
+                            placeholder="Mail"
+                            readonly="true">
+                        </mat-form-field>
+                        <!-- Estado -->
+                        <mat-form-field appearance="legacy">
+                            <input matInput
+                            [(ngModel)]="estado"
+                            placeholder="Estado"
+                            readonly="true">
+                        </mat-form-field>
+                    </p>
+            </mat-card-content>
+        </mat-card>
+    </mat-tab>
+    <p>Persona ID: {{persona.id}} </p>
+    <p>Contacto ID: {{persona.contactoDTO.contactoId}}</p>
+        </mat-tab-group>
+        <mat-card-actions class="contentCenter">
+            <button id="editar" mat-button (click)="edit(persona)">EDITAR</button>
+            <button id="guardar" mat-button (click)="save()" style="display: none;">GUARDAR</button>
+            <button mat-button (click)="cancel()">CANCELAR</button>
+        </mat-card-actions>
+    </mat-card-content>
 </mat-card>

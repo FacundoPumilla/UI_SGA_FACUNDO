@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PersonaFull } from 'src/app/model/personaFull';
 import { PersonaService } from '../../Services/persona.service';
+import { PersonaEditComponent } from '../persona-edit/persona-edit.component';
 
 @Component({
   selector: 'app-persona-dialog',
@@ -11,23 +12,24 @@ import { PersonaService } from '../../Services/persona.service';
 export class PersonaDialogComponent implements OnInit {
 
   persona: PersonaFull;
-  estado: string = "VACIO";
+  estado: string;
 
   constructor(
     public dialogRef: MatDialogRef<PersonaDialogComponent>,
     @Inject(MAT_DIALOG_DATA)
       public id: number,
+      public dialog: MatDialog,
       private personaService: PersonaService,
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.findByIdDialog(this.id);
   }
-  save(){
-
-  }
-  cancel(){
-    this.dialogRef.close();
+  
+  save(): void{
+    console.log(this.persona.id);
   }
   findByIdDialog(id: number): any{
     this.personaService.findById(id)
@@ -39,13 +41,23 @@ export class PersonaDialogComponent implements OnInit {
     )
   }
   resolverEstado(estado: boolean){
-    console.log(estado);
     if(estado) {
       this.estado = "ACTIVO";
-    }
+    } 
     else{
       this.estado = "INACTIVO";
     }
-    console.log(this.estado);
+  }
+  edit(persona: PersonaFull){
+    this.cancel();
+    this.dialog.open(PersonaEditComponent, {
+      disableClose: false,
+      width: 'auto',
+      data: persona
+    });
+  }
+
+  cancel(): void{
+    this.dialogRef.close();
   }
 }

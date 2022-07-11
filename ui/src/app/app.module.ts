@@ -31,6 +31,7 @@ import { AnimalService } from './core/animal/Services/animal.service';
 import { MenuItems } from './shared/model/menu-items/menuItems';
 import { AnimalNuevoComponent } from './core/animal/Components/Animal-nuevo/Animal-nuevo.component';
 import { MatSelectModule } from '@angular/material/select';
+import { PersonaEditComponent } from './core/persona/Components/persona-edit/persona-edit.component';
 
 //Entidad Persona
 
@@ -45,6 +46,7 @@ import { MatSelectModule } from '@angular/material/select';
     AppComponent,
     PersonaListComponent,
     PersonaDialogComponent,
+    PersonaEditComponent,
     AnimalListComponent,
     AnimalDialogComponent,
     AnimalNuevoComponent,
