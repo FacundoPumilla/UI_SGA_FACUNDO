@@ -17,13 +17,13 @@ export class SidenavComponent implements OnDestroy {
   private _mobileQueryListener: () => void;
 
   constructor(
-        changeDetectorRef: ChangeDetectorRef,
-        media: MediaMatcher,
-        menuItems:MenuItems) {
-    this.mobileQuery = media.matchMedia('(max-width: 600px)');
-    this._mobileQueryListener = () => changeDetectorRef.detectChanges();
-    this.mobileQuery.addListener(this._mobileQueryListener);
-    this.fillerNav=menuItems.getMenuItem();
+    changeDetectorRef: ChangeDetectorRef,
+    media: MediaMatcher,
+    menuItems:MenuItems) {
+      this.mobileQuery = media.matchMedia('(max-width: 600px)');
+      this._mobileQueryListener = () => changeDetectorRef.detectChanges();
+      this.mobileQuery.addListener(this._mobileQueryListener);
+      this.fillerNav=menuItems.getMenuItem();
   }
 
   ngOnDestroy(): void {

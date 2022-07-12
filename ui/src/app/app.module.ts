@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -35,12 +35,15 @@ import { ChipListComponent } from './core/components/chip/chip-list/chip-list.co
 import { MenuItems } from './shared/model/menu-items/menuItems';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 import { HomeComponent } from './shared/components/home/home.component';
+import { PersonaEditComponent } from './core/components/persona/persona-edit/persona-edit.component';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
   declarations: [
     AppComponent,
     PersonaListComponent,
     PersonaDialogComponent,
+    PersonaEditComponent,
     AnimalListComponent,
     AnimalDialogComponent,
     ChipDialogComponent,
@@ -64,11 +67,12 @@ import { HomeComponent } from './shared/components/home/home.component';
     MatListModule,
     MatSidenavModule,
     MatSlideToggleModule,
-    
+    ReactiveFormsModule,
     MatToolbarModule,
     FormsModule,
     MatCheckboxModule,
-    MatTabsModule
+    MatTabsModule,
+    MatSelectModule
   ],
   providers: [PersonaService,AnimalService,MenuItems ],
   bootstrap: [AppComponent]

@@ -1,0 +1,140 @@
+<form [formGroup]="personaForm">
+<mat-card>
+  <mat-card-content>
+    <h3>Editando a: <u>{{this.reciboPersona.apellido + ' ' + this.reciboPersona.nombre   | titlecase}}</u></h3>
+    <mat-tab-group>
+      <mat-tab>
+          <ng-template mat-tab-label>
+            <mat-icon class="example-tab-icon"></mat-icon>
+            Datos personales
+          </ng-template>
+        <mat-card class="contentCenter">
+          <mat-card-content>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Apellido</mat-label>
+                  <input matInput type="text"
+                    formControlName="apellido">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                  <input matInput type="text"
+                  formControlName="nombre">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Dni</mat-label>
+                  <input matInput type="number"
+                  formControlName="dni">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Sexo</mat-label>
+                <mat-select [(value)]="seleccionadoGenero" formControlName="sexo">
+                  <mat-option *ngFor="let gen of generos" [value]="gen.value">
+                    {{gen.value}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+            </mat-card-content>
+          </mat-card>
+        </mat-tab>
+      <!--Direccion-->
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon"></mat-icon>
+          Direccion
+        </ng-template>
+        <mat-card class="contentCenter">
+          <mat-card-content>
+            <p>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Pais</mat-label>
+                <mat-select [(value)]="seleccionadoPais" formControlName="pais">
+                  <mat-option *ngFor="let pais of paises" [value]="pais.value">
+                    {{pais.value}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+
+              <mat-form-field appearance="fill">
+                <mat-label>Provincia</mat-label>
+                <input matInput type="text"
+                formControlName="provincia">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Localidad</mat-label>
+                <input matInput type="text"
+                formControlName="localidad">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Departamento</mat-label>
+                <input matInput type="text"
+                formControlName="departamento">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Calle</mat-label>
+                <input matInput type="text"
+                formControlName="calle">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Numero</mat-label>
+                <input matInput type="number"
+                formControlName="numero">
+              </mat-form-field>
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+      <!--Contacto-->
+      <mat-tab>
+        <ng-template mat-tab-label>
+          <mat-icon class="example-tab-icon"></mat-icon>
+          Contacto
+        </ng-template>
+        <mat-card class="contentCenter">
+          <mat-card-content>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>Telefono principal</mat-label>
+                <input matInput type="number"
+                formControlName="telefono1">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Telefono respaldo</mat-label>
+                <input matInput type="number"
+                formControlName="telefono2">
+              </mat-form-field>
+            </p>
+            <p>
+              <mat-form-field appearance="fill">
+                <mat-label>E-mail</mat-label>
+                <input matInput type="mail"
+                formControlName="mail">
+              </mat-form-field>
+              <mat-form-field appearance="fill">
+                <mat-label>Estado</mat-label>
+                <mat-select [(ngModel)]="seleccionEstado" name="estados" formControlName="estado">
+                  <mat-option *ngFor="let est of estados" [value]="est.value">
+                    {{est.verValor}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
+    </mat-tab-group>
+    <mat-card-actions class="contentCenter">
+      <button mat-button (click)="save()">GUARDAR</button>
+      <button mat-button (click)="cancel()">CANCELAR</button>
+  </mat-card-actions>
+  </mat-card-content>
+</mat-card>
+</form>

@@ -1,9 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {  MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { MatSlideToggle, MatSlideToggleChange } from '@angular/material/slide-toggle';
-import { MatTab } from '@angular/material/tabs';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { PersonaService } from 'src/app/core/services/persona.service';
 import { PersonaFull } from 'src/app/model/personaFull';
+import { PersonaEditComponent } from '../persona-edit/persona-edit.component';
 
 @Component({
   selector: 'app-persona-dialog',
@@ -13,40 +12,24 @@ import { PersonaFull } from 'src/app/model/personaFull';
 export class PersonaDialogComponent implements OnInit {
 
   persona: PersonaFull;
-  estado: string = "VACIO";
+  estado: string;
 
   constructor(
     public dialogRef: MatDialogRef<PersonaDialogComponent>,
     @Inject(MAT_DIALOG_DATA)
       public id: number,
+      public dialog: MatDialog,
       private personaService: PersonaService,
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
     this.findByIdDialog(this.id);
-    
   }
-  save(){
-  }
-  estadoChange($event: MatSlideToggleChange){
-    this.persona.estado = !this.persona.estado;
-    this.resolverEstado(this.persona.estado);
-    console.log($event);
-  }
-  editar(){
-    let btnEstado = <HTMLButtonElement>document.getElementById('estado');
-    btnEstado.removeAttribute('disabled');
-    let btnEditar = <HTMLButtonElement>document.getElementById('editar');
-    btnEditar.style.display = 'none';
-    let btnGuardar = <HTMLButtonElement>document.getElementById('guardar');
-    btnGuardar.style.display = 'inline';
-    let input = document.querySelectorAll('input');
-    input?.forEach(function(inp) {
-      inp.removeAttribute('readonly');
-    });
-  }
-  cancel(){
-    this.dialogRef.close();
+  
+  save(): void{
+    console.log(this.persona.id);
   }
   findByIdDialog(id: number): any{
     this.personaService.findById(id)
@@ -58,12 +41,23 @@ export class PersonaDialogComponent implements OnInit {
     )
   }
   resolverEstado(estado: boolean){
-    console.log(estado);
     if(estado) {
       this.estado = "ACTIVO";
     } 
     else{
       this.estado = "INACTIVO";
     }
+  }
+  edit(persona: PersonaFull){
+    this.cancel();
+    this.dialog.open(PersonaEditComponent, {
+      disableClose: false,
+      width: 'auto',
+      data: persona
+    });
+  }
+
+  cancel(): void{
+    this.dialogRef.close();
   }
 }

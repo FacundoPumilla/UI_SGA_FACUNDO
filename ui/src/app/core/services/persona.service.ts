@@ -39,7 +39,7 @@ export class PersonaService {
       return result;
 
   }
-  updateOurUpdate(persona: Persona): Observable<any>{
+  updateOurUpdate(persona: PersonaFull): Observable<any>{
     const path = this.apiUrl+ "Update";
     return this.http.put<any>(path, persona);
   }

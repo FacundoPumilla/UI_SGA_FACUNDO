@@ -19,7 +19,7 @@ export class PersonaListComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    this.GetPersonaList()
+    this.GetPersonaList();
   }
   GetPersonaList():void{
     this.personaServices.findAll().subscribe((response:any)=>{
@@ -29,7 +29,7 @@ export class PersonaListComponent implements OnInit {
   }
 
   edit(id: number){
-    const dialogEdit = this.dialog.open(PersonaDialogComponent, {
+    this.dialog.open(PersonaDialogComponent, {
       disableClose: false,
       width: 'auto',
       data: id
