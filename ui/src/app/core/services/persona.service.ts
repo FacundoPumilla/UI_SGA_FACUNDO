@@ -5,6 +5,8 @@ import { map, Observable } from 'rxjs';
 import { Persona } from 'src/app/model/persona';
 import { PersonaFull } from 'src/app/model/personaFull';
 
+interface Estados{value: boolean; verValor: string};
+
 @Injectable({
   providedIn: 'root'
 })
@@ -14,7 +16,18 @@ export class PersonaService {
   constructor(
     private http: HttpClient
   ) {}
-
+  paises: string[] = ['Argentina','Uruguay','Brasil','Chile','Paraguay','Bolivia'];
+  generos :string[] = ['Mujer','Varon','Mujer trans','Varon trans','No definido'];
+  estados: Estados[] = [{value: true , verValor: 'ACTIVO'},{value: false , verValor: 'INACTIVO'}];
+  getPaises(): string[]{
+    return this.paises;
+  };
+  getGeneros(): string[]{
+    return this.generos;
+  }
+  getEstados(): Estados[]{
+    return this.estados;
+  }
 
   //METODO listar todas las persona
   findAll(): Observable<Persona[]> {

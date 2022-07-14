@@ -13,7 +13,6 @@ import {MatDialogModule} from '@angular/material/dialog';
 import {MatCardModule} from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatTabsModule} from '@angular/material/tabs';
 import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatListModule} from '@angular/material/list';
@@ -37,6 +36,7 @@ import { SidenavComponent } from './shared/components/sidenav/sidenav.component'
 import { HomeComponent } from './shared/components/home/home.component';
 import { PersonaEditComponent } from './core/components/persona/persona-edit/persona-edit.component';
 import { MatSelectModule } from '@angular/material/select';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
@@ -70,9 +70,10 @@ import { MatSelectModule } from '@angular/material/select';
     ReactiveFormsModule,
     MatToolbarModule,
     FormsModule,
-    MatCheckboxModule,
+    
     MatTabsModule,
-    MatSelectModule
+    MatSelectModule,
+    MatTooltipModule
   ],
   providers: [PersonaService,AnimalService,MenuItems ],
   bootstrap: [AppComponent]

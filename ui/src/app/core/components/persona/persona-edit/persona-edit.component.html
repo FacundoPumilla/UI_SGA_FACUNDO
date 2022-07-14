@@ -1,7 +1,8 @@
 <form [formGroup]="personaForm">
 <mat-card>
   <mat-card-content>
-    <h3>Editando a: <u>{{this.reciboPersona.apellido + ' ' + this.reciboPersona.nombre   | titlecase}}</u></h3>
+    <h3>Editando a: <u>{{this.reciboPersona.apellido | titlecase}} {{this.reciboPersona.nombre | titlecase}} -> ID: {{reciboPersona.id}}</u></h3>
+    <p>{{reciboPersona.contactoDTO.contactoId}}</p>
     <mat-tab-group>
       <mat-tab>
           <ng-template mat-tab-label>
@@ -12,28 +13,30 @@
           <mat-card-content>
             <p>
               <mat-form-field appearance="fill">
-                <mat-label>Apellido</mat-label>
+                <mat-label>Apellidos</mat-label>
                   <input matInput type="text"
-                    formControlName="apellido">
+                    formControlName="apellido"
+                    [value]="reciboPersona.apellido">
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Nombre</mat-label>
                   <input matInput type="text"
-                  formControlName="nombre">
+                  formControlName="nombre"
+                  [value]="reciboPersona.nombre">
               </mat-form-field>
             </p>
             <p>
               <mat-form-field appearance="fill">
                 <mat-label>Dni</mat-label>
                   <input matInput type="number"
-                  formControlName="dni">
+                  formControlName="dni"
+                  [value]="reciboPersona.dni">
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Sexo</mat-label>
-                <mat-select [(value)]="seleccionadoGenero" formControlName="sexo">
-                  <mat-option *ngFor="let gen of generos" [value]="gen.value">
-                    {{gen.value}}
-                  </mat-option>
+                <mat-select [value]="reciboPersona.sexo" formControlName="sexo">
+                  <mat-option></mat-option>
+                  <mat-option *ngFor="let gen of generos" [value]="gen">{{gen}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </p>
@@ -49,32 +52,33 @@
         <mat-card class="contentCenter">
           <mat-card-content>
             <p>
-
+              <input matInput [value]="reciboPersona.contactoDTO.contactoId" hidden formControlName="contactoId">
               <mat-form-field appearance="fill">
                 <mat-label>Pais</mat-label>
-                <mat-select [(value)]="seleccionadoPais" formControlName="pais">
-                  <mat-option *ngFor="let pais of paises" [value]="pais.value">
-                    {{pais.value}}
-                  </mat-option>
+                <mat-select formControlName="pais" [value]="reciboPersona.contactoDTO.pais">
+                  <mat-option></mat-option>
+                  <mat-option [value]="pais" *ngFor="let pais of paises">{{pais}}</mat-option>
                 </mat-select>
               </mat-form-field>
-
               <mat-form-field appearance="fill">
                 <mat-label>Provincia</mat-label>
                 <input matInput type="text"
-                formControlName="provincia">
+                formControlName="provincia"
+                [value]="reciboPersona.contactoDTO.provincia">
               </mat-form-field>
             </p>
             <p>
               <mat-form-field appearance="fill">
                 <mat-label>Localidad</mat-label>
                 <input matInput type="text"
-                formControlName="localidad">
+                formControlName="localidad"
+                [value]="reciboPersona.contactoDTO.localidad">
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Departamento</mat-label>
                 <input matInput type="text"
-                formControlName="departamento">
+                formControlName="departamento"
+                [value]="reciboPersona.contactoDTO.departamento">
               </mat-form-field>
             </p>
             <p>
@@ -120,10 +124,9 @@
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Estado</mat-label>
-                <mat-select [(ngModel)]="seleccionEstado" name="estados" formControlName="estado">
-                  <mat-option *ngFor="let est of estados" [value]="est.value">
-                    {{est.verValor}}
-                  </mat-option>
+                <mat-select [value]="reciboPersona.estado" formControlName="estado">
+                  <mat-option></mat-option>
+                  <mat-option *ngFor="let est of estados" [value]="est.value">{{est.verValor}}</mat-option>
                 </mat-select>
               </mat-form-field>
             </p>

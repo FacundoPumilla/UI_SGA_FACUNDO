@@ -13,14 +13,14 @@
                         <!-- Apellido -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)] = "persona.apellido"
+                                [value] = "persona.apellido"
                                 placeholder="Apellido"
                                 readonly="true">
                             </mat-form-field>
                         <!-- Nombre -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)] = "persona.nombre"
+                                [value] = "persona.nombre"
                                 placeholder="Nombre"
                                 readonly="true">
                             </mat-form-field>
@@ -29,14 +29,14 @@
                         <!-- Dni -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)] =  "persona.dni"
+                                [value] =  "persona.dni"
                                 placeholder="DNI"
                                 readonly="true">
                             </mat-form-field>
                         <!-- Sexo -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)] = "persona.sexo"
+                                [value] = "persona.sexo"
                                 placeholder="Sexo"
                                 readonly="true">
                             </mat-form-field>
@@ -55,14 +55,14 @@
                         <!-- Pais -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)]="persona.contactoDTO.pais"
+                                [value]="persona.contactoDTO.pais"
                                 placeholder="Pais"
                                 readonly="true">
                             </mat-form-field>
                         <!-- Provincia -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)]="persona.contactoDTO.provincia"
+                                [value]="persona.contactoDTO.provincia"
                                 placeholder="Provincia"
                                 readonly="true">
                             </mat-form-field>
@@ -71,14 +71,14 @@
                         <!-- Departamento -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)]="persona.contactoDTO.departamento"
+                                [value]="persona.contactoDTO.departamento"
                                 placeholder="Departamento"
                                 readonly="true">
                             </mat-form-field>
                         <!-- Localidad -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)]="persona.contactoDTO.localidad"
+                                [value]="persona.contactoDTO.localidad"
                                 placeholder="Localidad"
                                 readonly="true">
                             </mat-form-field>
@@ -87,14 +87,14 @@
                         <!-- Calle -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)]="persona.contactoDTO.calle"
+                                [value]="persona.contactoDTO.calle"
                                 placeholder="Calle"
                                 readonly="true">
                             </mat-form-field>
                         <!-- Numero -->
                             <mat-form-field appearance="legacy">
                                 <input matInput
-                                [(ngModel)]="persona.contactoDTO.numero"
+                                [value]="persona.contactoDTO.numero"
                                 placeholder="Numero"
                                 readonly="true">
                             </mat-form-field>
@@ -113,14 +113,14 @@
                             <!-- Telefono -->
                         <mat-form-field appearance="legacy">
                             <input matInput
-                            [(ngModel)]="persona.contactoDTO.telefono1"
+                            [value]="persona.contactoDTO.telefono1"
                             placeholder="Telefono1"
                             readonly="true">
                         </mat-form-field>
                         <!-- Telefono -->
                         <mat-form-field appearance="legacy">
                             <input matInput
-                            [(ngModel)]="persona.contactoDTO.telefono2"
+                            [value]="persona.contactoDTO.telefono2"
                             placeholder="telefono2"
                             readonly="true">
                         </mat-form-field>
@@ -129,14 +129,14 @@
                         <!-- Mail -->
                         <mat-form-field appearance="legacy">
                             <input matInput
-                            [(ngModel)]="persona.contactoDTO.mail"
+                            [value]="persona.contactoDTO.mail"
                             placeholder="Mail"
                             readonly="true">
                         </mat-form-field>
                         <!-- Estado -->
                         <mat-form-field appearance="legacy">
                             <input matInput
-                            [(ngModel)]="estado"
+                            [value]="estado"
                             placeholder="Estado"
                             readonly="true">
                         </mat-form-field>
@@ -148,9 +148,7 @@
     <p>Contacto ID: {{persona.contactoDTO.contactoId}}</p>
         </mat-tab-group>
         <mat-card-actions class="contentCenter">
-            <button id="editar" mat-button (click)="edit(persona)">EDITAR</button>
-            <button id="guardar" mat-button (click)="save()" style="display: none;">GUARDAR</button>
-            <button mat-button (click)="cancel()">CANCELAR</button>
+            <button mat-button [routerLink]="'personas'" (click)="cancel()">VOLVER</button>
         </mat-card-actions>
     </mat-card-content>
 </mat-card>
