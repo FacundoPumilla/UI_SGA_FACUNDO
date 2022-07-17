@@ -1,6 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { PersonaService } from 'src/app/core/services/persona.service';
+import { PersonaService } from 'src/app/core/components/persona/services/persona.service';
 import { PersonaFull } from 'src/app/model/personaFull';
 
 @Component({

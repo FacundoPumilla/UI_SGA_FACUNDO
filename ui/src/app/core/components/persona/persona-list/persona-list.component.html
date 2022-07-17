@@ -25,7 +25,9 @@
       <button matTooltip="Detalles" mat-icon-button (click)="detalles(persona.id)">
         <mat-icon>more_vert</mat-icon>
       </button>
-      <button matTooltip="Editar" mat-icon-button (click)="edit(persona.id)">
+      <!-- [routerLink]="'/personas/edit'"  -->
+      <button matTooltip="Editar" mat-icon-button (click)="goToForm(persona)">
+        <!-- <button matTooltip="Editar" mat-icon-button (click)="edit(persona.id)"> -->
         <mat-icon>edit_box</mat-icon>
       </button>
       <button matTooltip="Borrar" mat-icon-button (click)="delete(persona.id)">

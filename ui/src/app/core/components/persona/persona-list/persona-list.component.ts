@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { PersonaService } from 'src/app/core/services/persona.service';
+import { Router } from '@angular/router';
+import { PersonaService } from 'src/app/core/components/persona/services/persona.service';
 import { Persona } from 'src/app/model/persona';
 import { PersonaFull } from 'src/app/model/personaFull';
 import { PersonaDialogComponent } from '../persona-dialog/persona-dialog.component';
@@ -12,24 +13,29 @@ import { PersonaEditComponent } from '../persona-edit/persona-edit.component';
   styleUrls: ['./persona-list.component.css']
 })
 export class PersonaListComponent implements OnInit {
+
   personaList:Persona[];
   displayedColumns: string[] = ['id','nombre','apellido', 'dni','acciones'];
 
   constructor(
     public dialog: MatDialog,
-    private personaServices: PersonaService
+    private personaService: PersonaService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
     this.GetPersonaList();
   }
+
+  goToForm(_data: PersonaFull){
+    this.router.navigate(['personas/edit/'+ _data.id]);
+  }
   GetPersonaList():void{
-    this.personaServices.findAll().subscribe((response:any)=>{
+    this.personaService.findAll().subscribe((response:any)=>{
       this.personaList= response as Persona[];
     });
   };
   detalles(id: number){
-    
     this.dialog.open(PersonaDialogComponent, {
       disableClose: false,
       width: 'auto',
@@ -39,14 +45,10 @@ export class PersonaListComponent implements OnInit {
 
   
   edit(id: number){
-    var personaSend = this.personaServices.findById(id).subscribe((response: any) => {
-      response as PersonaFull;
-    });
-    console.log(personaSend);
     this.dialog.open(PersonaEditComponent, {
       disableClose: false,
       width: 'auto',
-      data: personaSend
+      data: id
     });
   };
   delete(id: number){

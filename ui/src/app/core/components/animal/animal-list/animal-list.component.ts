@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AnimalService } from 'src/app/core/services/animal.service';
 import { Animal } from 'src/app/model/animal';
-import { Persona } from 'src/app/model/persona';
 import { AnimalDialogComponent } from '../animal-dialog/animal-dialog.component';
 
 @Component({

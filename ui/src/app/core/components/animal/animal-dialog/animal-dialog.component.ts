@@ -1,10 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {  MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { AnimalService } from 'src/app/core/services/animal.service';
-import { PersonaService } from 'src/app/core/services/persona.service';
 import { AnimalFull } from 'src/app/model/animalFull';
 import { PersonaFull } from 'src/app/model/personaFull';
 import { PersonaDialogComponent } from '../../persona/persona-dialog/persona-dialog.component';
+import { PersonaService } from '../../persona/services/persona.service';
 
 @Component({
   selector: 'app-animal-dialog',

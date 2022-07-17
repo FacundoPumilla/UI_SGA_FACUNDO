@@ -20,9 +20,6 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 
 //Entidad Persona
-import { PersonaListComponent } from './core/components/persona/persona-list/persona-list.component';
-import { PersonaService } from './core/services/persona.service';
-import { PersonaDialogComponent } from './core/components/persona/persona-dialog/persona-dialog.component';
 import { AnimalService } from './core/services/animal.service';
 
 //Entidad Animal
@@ -34,16 +31,12 @@ import { ChipListComponent } from './core/components/chip/chip-list/chip-list.co
 import { MenuItems } from './shared/model/menu-items/menuItems';
 import { SidenavComponent } from './shared/components/sidenav/sidenav.component';
 import { HomeComponent } from './shared/components/home/home.component';
-import { PersonaEditComponent } from './core/components/persona/persona-edit/persona-edit.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
   declarations: [
     AppComponent,
-    PersonaListComponent,
-    PersonaDialogComponent,
-    PersonaEditComponent,
     AnimalListComponent,
     AnimalDialogComponent,
     ChipDialogComponent,
@@ -75,7 +68,7 @@ import { MatTooltipModule } from '@angular/material/tooltip';
     MatSelectModule,
     MatTooltipModule
   ],
-  providers: [PersonaService,AnimalService,MenuItems ],
+  providers: [AnimalService,MenuItems ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,8 +1,8 @@
 <form [formGroup]="personaForm">
 <mat-card>
   <mat-card-content>
-    <h3>Editando a: <u>{{this.reciboPersona.apellido | titlecase}} {{this.reciboPersona.nombre | titlecase}} -> ID: {{reciboPersona.id}}</u></h3>
-    <p>{{reciboPersona.contactoDTO.contactoId}}</p>
+    <h3>Editando a: <u>{{reciboPersona.apellido | titlecase}} {{reciboPersona.nombre | titlecase}} -> ID: {{reciboPersona.id}}</u></h3>
+    <p>[apellido]="this.reciboPersona.apellido"</p>
     <mat-tab-group>
       <mat-tab>
           <ng-template mat-tab-label>
@@ -15,8 +15,7 @@
               <mat-form-field appearance="fill">
                 <mat-label>Apellidos</mat-label>
                   <input matInput type="text"
-                    formControlName="apellido"
-                    [value]="reciboPersona.apellido">
+                    formControlName="apellido">
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Nombre</mat-label>
@@ -52,10 +51,12 @@
         <mat-card class="contentCenter">
           <mat-card-content>
             <p>
-              <input matInput [value]="reciboPersona.contactoDTO.contactoId" hidden formControlName="contactoId">
+              <!-- reciboPersona.contactoDTO.contactoId -->
+              <!-- reciboPersona.contactoDTO.pais -->
+              <input matInput [value]="" hidden formControlName="contactoId">
               <mat-form-field appearance="fill">
                 <mat-label>Pais</mat-label>
-                <mat-select formControlName="pais" [value]="reciboPersona.contactoDTO.pais">
+                <mat-select formControlName="pais" [value]="">
                   <mat-option></mat-option>
                   <mat-option [value]="pais" *ngFor="let pais of paises">{{pais}}</mat-option>
                 </mat-select>
@@ -64,23 +65,27 @@
                 <mat-label>Provincia</mat-label>
                 <input matInput type="text"
                 formControlName="provincia"
-                [value]="reciboPersona.contactoDTO.provincia">
+                
+                [value]="">
               </mat-form-field>
+              <!-- reciboPersona.contactoDTO.provincia -->
             </p>
             <p>
+              <!-- reciboPersona.contactoDTO.localidad -->
               <mat-form-field appearance="fill">
                 <mat-label>Localidad</mat-label>
                 <input matInput type="text"
                 formControlName="localidad"
-                [value]="reciboPersona.contactoDTO.localidad">
+                [value]="">
               </mat-form-field>
               <mat-form-field appearance="fill">
                 <mat-label>Departamento</mat-label>
                 <input matInput type="text"
                 formControlName="departamento"
-                [value]="reciboPersona.contactoDTO.departamento">
+                [value]="">
               </mat-form-field>
             </p>
+            <!-- reciboPersona.contactoDTO.departamento -->
             <p>
               <mat-form-field appearance="fill">
                 <mat-label>Calle</mat-label>

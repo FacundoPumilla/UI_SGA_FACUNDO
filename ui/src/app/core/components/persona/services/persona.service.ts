@@ -1,9 +1,9 @@
-import { Injectable } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { Injectable, Output } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map, Observable } from 'rxjs';
 import { Persona } from 'src/app/model/persona';
 import { PersonaFull } from 'src/app/model/personaFull';
+import { environment } from 'src/environments/environment';
 
 interface Estados{value: boolean; verValor: string};
 
@@ -13,9 +13,13 @@ interface Estados{value: boolean; verValor: string};
 export class PersonaService {
   private API_URL = environment.baseUrl;
   private apiUrl = this.API_URL + 'Persona/';
+  
+  //@Output() idEmitida: EventEmitter<any> = new EventEmitter();
+
   constructor(
     private http: HttpClient
   ) {}
+
   paises: string[] = ['Argentina','Uruguay','Brasil','Chile','Paraguay','Bolivia'];
   generos :string[] = ['Mujer','Varon','Mujer trans','Varon trans','No definido'];
   estados: Estados[] = [{value: true , verValor: 'ACTIVO'},{value: false , verValor: 'INACTIVO'}];
@@ -42,13 +46,13 @@ export class PersonaService {
         map((response: any) => response as PersonaFull)
       );
       return result;
-
   }
   findByDni(dni: string): Observable<PersonaFull>{
     var result = this.http.get(this.apiUrl+"dni/"+dni)
       .pipe(
         map((response: any) => response as PersonaFull)
       );
+
       return result;
 
   }
