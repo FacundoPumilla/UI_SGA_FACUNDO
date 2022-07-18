@@ -20,8 +20,8 @@ export class PersonaService {
     private http: HttpClient
   ) {}
 
-  paises: string[] = ['Argentina','Uruguay','Brasil','Chile','Paraguay','Bolivia'];
-  generos :string[] = ['Mujer','Varon','Mujer trans','Varon trans','No definido'];
+  paises: string[] = ['ARGENTINA','URUGUAY','BRASIL','CHILE','PARAGUAY','BOLIVIA'];
+  generos :string[] = ['MUJER','VARON','MUJER TRANS','VAROn TRANS','NO DEFINIDO'];
   estados: Estados[] = [{value: true , verValor: 'ACTIVO'},{value: false , verValor: 'INACTIVO'}];
   getPaises(): string[]{
     return this.paises;
@@ -52,9 +52,7 @@ export class PersonaService {
       .pipe(
         map((response: any) => response as PersonaFull)
       );
-
-      return result;
-
+    return result;
   }
   updateOurUpdate(persona: PersonaFull): Observable<any>{
     const path = this.apiUrl+ "Update";

@@ -27,8 +27,11 @@ export class PersonaListComponent implements OnInit {
     this.GetPersonaList();
   }
 
-  goToForm(_data: PersonaFull){
+  goToEdit(_data: PersonaFull){
     this.router.navigate(['personas/edit/'+ _data.id]);
+  }
+  goToNew(){
+    this.router.navigate(['personas/new/']);
   }
   GetPersonaList():void{
     this.personaService.findAll().subscribe((response:any)=>{

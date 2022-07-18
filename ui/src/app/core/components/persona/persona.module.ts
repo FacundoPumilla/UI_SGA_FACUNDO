@@ -20,12 +20,14 @@ import { MatTableModule } from '@angular/material/table';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { PersonaService } from './services/persona.service';
 import { HttpClientModule } from '@angular/common/http';
+import { PersonaNewComponent } from './persona-new/persona-new.component';
 
 @NgModule({
   declarations: [
     PersonaListComponent,
     PersonaEditComponent,
     PersonaDialogComponent,
+    PersonaNewComponent,
     
   ],
   imports: [

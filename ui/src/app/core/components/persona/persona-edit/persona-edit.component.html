@@ -1,9 +1,8 @@
 <form [formGroup]="personaForm">
 <mat-card>
   <mat-card-content>
-    <h3>Editando a: <u>{{reciboPersona.apellido | titlecase}} {{reciboPersona.nombre | titlecase}} -> ID: {{reciboPersona.id}}</u></h3>
-    <p>[apellido]="this.reciboPersona.apellido"</p>
-    <mat-tab-group>
+    <h3 class="contentCenter">Editando a: {{reciboPersona.apellido | titlecase}} {{reciboPersona.nombre | titlecase}} -> ID: {{reciboPersona.id}}</h3>
+    <mat-tab-group mat-stretch-tabs>
       <mat-tab>
           <ng-template mat-tab-label>
             <mat-icon class="example-tab-icon"></mat-icon>
@@ -20,28 +19,28 @@
               <mat-form-field appearance="fill">
                 <mat-label>Nombre</mat-label>
                   <input matInput type="text"
-                  formControlName="nombre"
-                  [value]="reciboPersona.nombre">
+                  formControlName="nombre">
               </mat-form-field>
             </p>
             <p>
               <mat-form-field appearance="fill">
                 <mat-label>Dni</mat-label>
-                  <input matInput type="number"
+                  <input matInput type="text"
                   formControlName="dni"
                   [value]="reciboPersona.dni">
               </mat-form-field>
+
               <mat-form-field appearance="fill">
                 <mat-label>Sexo</mat-label>
-                <mat-select [value]="reciboPersona.sexo" formControlName="sexo">
-                  <mat-option></mat-option>
+                <mat-select formControlName="sexo">
                   <mat-option *ngFor="let gen of generos" [value]="gen">{{gen}}</mat-option>
                 </mat-select>
               </mat-form-field>
+
             </p>
-            </mat-card-content>
-          </mat-card>
-        </mat-tab>
+          </mat-card-content>
+        </mat-card>
+      </mat-tab>
       <!--Direccion-->
       <mat-tab>
         <ng-template mat-tab-label>
@@ -50,48 +49,44 @@
         </ng-template>
         <mat-card class="contentCenter">
           <mat-card-content>
+            <input matInput [value]="" hidden formControlName="contactoId">
             <p>
-              <!-- reciboPersona.contactoDTO.contactoId -->
-              <!-- reciboPersona.contactoDTO.pais -->
-              <input matInput [value]="" hidden formControlName="contactoId">
+
               <mat-form-field appearance="fill">
                 <mat-label>Pais</mat-label>
-                <mat-select formControlName="pais" [value]="">
-                  <mat-option></mat-option>
-                  <mat-option [value]="pais" *ngFor="let pais of paises">{{pais}}</mat-option>
+                <mat-select formControlName="pais">
+                  <mat-option *ngFor="let pais of paises" [value]="pais">{{pais}}</mat-option>
                 </mat-select>
               </mat-form-field>
+
               <mat-form-field appearance="fill">
                 <mat-label>Provincia</mat-label>
                 <input matInput type="text"
                 formControlName="provincia"
-                
                 [value]="">
               </mat-form-field>
-              <!-- reciboPersona.contactoDTO.provincia -->
-            </p>
-            <p>
-              <!-- reciboPersona.contactoDTO.localidad -->
+
               <mat-form-field appearance="fill">
                 <mat-label>Localidad</mat-label>
                 <input matInput type="text"
                 formControlName="localidad"
                 [value]="">
               </mat-form-field>
+            </p>
+            <p>
               <mat-form-field appearance="fill">
                 <mat-label>Departamento</mat-label>
                 <input matInput type="text"
                 formControlName="departamento"
                 [value]="">
               </mat-form-field>
-            </p>
-            <!-- reciboPersona.contactoDTO.departamento -->
-            <p>
+            
               <mat-form-field appearance="fill">
                 <mat-label>Calle</mat-label>
                 <input matInput type="text"
                 formControlName="calle">
               </mat-form-field>
+
               <mat-form-field appearance="fill">
                 <mat-label>Numero</mat-label>
                 <input matInput type="number"
@@ -115,6 +110,7 @@
                 <input matInput type="number"
                 formControlName="telefono1">
               </mat-form-field>
+
               <mat-form-field appearance="fill">
                 <mat-label>Telefono respaldo</mat-label>
                 <input matInput type="number"
@@ -127,22 +123,29 @@
                 <input matInput type="mail"
                 formControlName="mail">
               </mat-form-field>
+
               <mat-form-field appearance="fill">
                 <mat-label>Estado</mat-label>
-                <mat-select [value]="reciboPersona.estado" formControlName="estado">
-                  <mat-option></mat-option>
-                  <mat-option *ngFor="let est of estados" [value]="est.value">{{est.verValor}}</mat-option>
-                </mat-select>
-              </mat-form-field>
+                <input matInput type="text"
+                formControlName="estado" readonly="true">
+                <button matSuffix mat-icon-button matTooltip="Actualizar" mat-icon-button (click)="verCambio(reciboPersona.id)">
+                  <mat-icon *ngIf="this.personaForm.get('estado')?.value === 'ACTIVO' ">
+                    <span class="material-symbols-outlined">check_box</span></mat-icon>
+                    <mat-icon *ngIf="this.personaForm.get('estado')?.value === 'INACTIVO' ">
+                      <span class="material-symbols-outlined">check_box_outline_blank</span></mat-icon>
+                </button>
+              </mat-form-field> 
             </p>
           </mat-card-content>
         </mat-card>
       </mat-tab>
     </mat-tab-group>
+
     <mat-card-actions class="contentCenter">
       <button mat-button (click)="save()">GUARDAR</button>
       <button mat-button (click)="cancel()">CANCELAR</button>
-  </mat-card-actions>
+    </mat-card-actions>
+
   </mat-card-content>
 </mat-card>
 </form>
