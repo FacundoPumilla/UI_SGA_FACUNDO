@@ -21,7 +21,7 @@ export class PersonaService {
   ) {}
 
   paises: string[] = ['ARGENTINA','URUGUAY','BRASIL','CHILE','PARAGUAY','BOLIVIA'];
-  generos :string[] = ['MUJER','VARON','MUJER TRANS','VAROn TRANS','NO DEFINIDO'];
+  generos :string[] = ['MUJER','VARON','MUJER TRANS','VARON TRANS','NO DEFINIDO'];
   estados: Estados[] = [{value: true , verValor: 'ACTIVO'},{value: false , verValor: 'INACTIVO'}];
   getPaises(): string[]{
     return this.paises;

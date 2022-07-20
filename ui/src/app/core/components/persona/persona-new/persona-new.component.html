@@ -1,150 +1,141 @@
-<form [formGroup]="personaForm">
-    <mat-card>
+<form [formGroup]="personaForm" (ngSubmit)="save()">
+    <mat-card class="contentCenter">
       <mat-card-content>
-        <h3 class="contentCenter">Editando a: {{apellidoHTML}}, {{nombreHTML}}</h3>
-        <mat-tab-group mat-stretch-tabs>
-          <mat-tab>
-              <ng-template mat-tab-label>
-                <mat-icon class="example-tab-icon"></mat-icon>
-                Datos personales
-              </ng-template>
-            <mat-card class="contentCenter">
-              <mat-card-content>
-                <p>
-                  <mat-form-field appearance="fill">
-                    <mat-label>Apellidos</mat-label>
-                      <input matInput type="text"
-                        formControlName="apellido"
-                        (ngModelChange)="actApellido()">
-                  </mat-form-field>
-                  <mat-form-field appearance="fill">
-                    <mat-label>Nombre</mat-label>
-                      <input matInput type="text"
-                      formControlName="nombre"
-                      (ngModelChange)="actNombres()">
-                  </mat-form-field>
-                </p>
-                <p>
-                  <mat-form-field appearance="fill">
-                    <mat-label>Dni</mat-label>
-                      <input matInput type="text"
-                      formControlName="dni"
-                      [(ngModel)]="personaForm.value.dni"
-                      (ngModelChange)="actValue()">
-                      <div *ngIf="personaForm.invalid && (personaForm.dirty || personaForm.touched)"
-                        class="alert alert-danger">
-                        <div *ngIf="personaForm.errors?.['minLength']">Solo numeros del 0 al 9</div>
-                      </div>
-                  </mat-form-field>
-    
-                  <mat-form-field appearance="fill">
-                    <mat-label>Sexo</mat-label>
-                    <mat-select formControlName="sexo">
-                      <mat-option *ngFor="let gen of generos" [value]="gen">{{gen}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-    
-                </p>
-              </mat-card-content>
-            </mat-card>
-          </mat-tab>
-          <!--Direccion-->
-          <mat-tab>
-            <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon"></mat-icon>
-              Direccion
-            </ng-template>
-            <mat-card class="contentCenter">
-              <mat-card-content>
-                <input matInput [value]="" hidden formControlName="contactoId">
-                <p>
-    
-                  <mat-form-field appearance="fill">
-                    <mat-label>Pais</mat-label>
-                    <mat-select formControlName="pais">
-                      <mat-option *ngFor="let pais of paises" [value]="pais">{{pais}}</mat-option>
-                    </mat-select>
-                  </mat-form-field>
-    
-                  <mat-form-field appearance="fill">
-                    <mat-label>Provincia</mat-label>
-                    <input matInput type="text"
-                    formControlName="provincia"
-                    [value]="">
-                  </mat-form-field>
-    
-                  <mat-form-field appearance="fill">
-                    <mat-label>Localidad</mat-label>
-                    <input matInput type="text"
-                    formControlName="localidad"
-                    [value]="">
-                  </mat-form-field>
-                </p>
-                <p>
-                  <mat-form-field appearance="fill">
-                    <mat-label>Departamento</mat-label>
-                    <input matInput type="text"
-                    formControlName="departamento"
-                    [value]="">
-                  </mat-form-field>
-                
-                  <mat-form-field appearance="fill">
-                    <mat-label>Calle</mat-label>
-                    <input matInput type="text"
-                    formControlName="calle">
-                  </mat-form-field>
-    
-                  <mat-form-field appearance="fill">
-                    <mat-label>Numero</mat-label>
-                    <input matInput type="number"
-                    formControlName="numero">
-                  </mat-form-field>
-                </p>
-              </mat-card-content>
-            </mat-card>
-          </mat-tab>
-          <!--Contacto-->
-          <mat-tab>
-            <ng-template mat-tab-label>
-              <mat-icon class="example-tab-icon"></mat-icon>
-              Contacto
-            </ng-template>
-            <mat-card class="contentCenter">
-              <mat-card-content>
-                <p>
-                  <mat-form-field appearance="fill">
-                    <mat-label>Telefono principal</mat-label>
-                    <input matInput type="number"
-                    formControlName="telefono1">
-                  </mat-form-field>
-    
-                  <mat-form-field appearance="fill">
-                    <mat-label>Telefono respaldo</mat-label>
-                    <input matInput type="number"
-                    formControlName="telefono2">
-                  </mat-form-field>
-                </p>
-                <p>
-                  <mat-form-field appearance="fill">
-                    <mat-label>E-mail</mat-label>
-                    <input matInput type="mail"
-                    formControlName="mail">
-                  </mat-form-field>
-    
-                  <mat-form-field appearance="fill">
-                    <mat-label>Estado</mat-label>
-                    <input matInput type="text"
-                    formControlName="estado" readonly="true"
-                    value='true'>
-                  </mat-form-field> 
-                </p>
-              </mat-card-content>
-            </mat-card>
-          </mat-tab>
-        </mat-tab-group>
-    
-        <mat-card-actions class="contentCenter">
-          <button mat-button (click)="save()">GUARDAR</button>
+        <h3 class="contentCenter"><mat-icon>person</mat-icon> {{apellidoHTML}} {{nombreHTML}}</h3>
+        <div>
+          <div class="col">
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Apellidos</mat-label>
+                <input matInput type="text"
+                formControlName="apellido"
+                (ngModelChange)="actApellido()">
+                <mat-error>{{getError('apellido')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Nombre</mat-label>
+                <input matInput type="text"
+                formControlName="nombre"
+                (ngModelChange)="actNombres()">
+                <mat-error>{{getError('nombre')}}</mat-error>
+              </mat-form-field>
+            </div>
+
+          </div>
+          <div class="col">
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Dni</mat-label>
+                <input matInput type="text"
+                formControlName="dni">
+                <mat-error>{{getError('dni')}}</mat-error>
+              </mat-form-field>
+            </div>
+            <div>
+              <mat-form-field appearance="fill">
+                <mat-label>Sexo</mat-label>
+                <mat-select formControlName="sexo">
+                  <mat-option *ngFor="let gen of generos" [value]="gen">{{gen}}</mat-option>
+                </mat-select>
+                <mat-error>{{getError('sexo')}}</mat-error>
+              </mat-form-field>
+            </div>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <input matInput [value]="" hidden formControlName="contactoId">
+          <div class="col">
+            <mat-form-field appearance="fill">
+              <mat-label>Pais</mat-label>
+              <mat-select formControlName="pais">
+                <mat-option *ngFor="let pais of paises" [value]="pais">{{pais}}</mat-option>
+              </mat-select>
+              <mat-error>{{getError('pais')}}</mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+              <mat-label>Provincia</mat-label>
+              <input matInput type="text"
+              formControlName="provincia"
+              [value]="">
+              <mat-error>{{getError('provincia')}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+
+            <mat-form-field appearance="fill">
+              <mat-label>Localidad</mat-label>
+              <input matInput type="text"
+              formControlName="localidad"
+              [value]="">
+              <mat-error>{{getError('provincia')}}</mat-error>
+            </mat-form-field>
+            <mat-form-field appearance="fill">
+              <mat-label>Departamento</mat-label>
+              <input matInput type="text"
+              formControlName="departamento"
+              [value]="">
+              <mat-error>{{getError('provincia')}}</mat-error>
+            </mat-form-field>
+          </div>
+          <div class="col">
+            <mat-form-field appearance="fill">
+              <mat-label>Calle</mat-label>
+              <input matInput type="text"
+              formControlName="calle">
+              <mat-error>{{getError('provincia')}}</mat-error>
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+              <mat-label>Numero</mat-label>
+              <input matInput type="number"
+              formControlName="numero">
+              <mat-error>{{getError('provincia')}}</mat-error>
+            </mat-form-field>
+          </div>
+        </div>
+        <hr>
+        <div>
+          <div class="col">
+            <mat-form-field appearance="fill">
+            <mat-label>Telefono principal</mat-label>
+              <input matInput type="number"
+              formControlName="telefono1">
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+              <mat-label>Telefono respaldo</mat-label>
+              <input matInput type="number"
+              formControlName="telefono2">
+            </mat-form-field>
+
+          </div>
+          <div class="col">
+
+            <mat-form-field appearance="fill">
+              <mat-label>E-mail</mat-label>
+              <input matInput type="mail"
+              formControlName="mail">
+            </mat-form-field>
+            
+            <mat-form-field appearance="fill">
+              <mat-label>Estado</mat-label>
+              <input matInput type="text"
+              formControlName="estado" readonly="true"
+              value='true'>
+            </mat-form-field> 
+
+          </div>
+        </div>
+              
+              <mat-card-actions class="contentCenter">
+                <div *ngIf="personaForm.get('*')?.errors">
+                  <p class="alert alert-danger">Aun tiene errores en el formulario</p>
+                </div>
+          <button mat-button type="submit">GUARDAR</button>
           <button mat-button (click)="cancel()">CANCELAR</button>
         </mat-card-actions>
     

@@ -5,3 +5,14 @@
 .mat-form-field{
     margin-left: 10px;
 }
+span {
+    color: orangered;
+}
+.col{display:flex;}
+    .col div{flex:1}
+
+.alert{
+    padding: 2px;
+    color: orangered;
+    margin-bottom: 2px;
+}

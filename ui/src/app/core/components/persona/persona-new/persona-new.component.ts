@@ -21,23 +21,47 @@ export class PersonaNewComponent implements OnInit {
 
   valido: string;
 
+  private mensajesErrores: any = {
+    'apellido' : {
+      'minlength' : 'El campo debe tener al menos 3 caracteres',
+      'maxlength' : 'El campo debe tener maximo 20 caracteres',
+      'required' : 'Ingrese un apellido valido',
+      'pattern' : 'Solo se permiten letras'
+    },
+    'nombre' : {
+      'minlength' : 'El campo debe tener al menos 3 caracteres',
+      'maxlength' : 'El campo debe tener maximo 20 caracteres',
+      'required' : 'Ingrese un nombre valido',
+      'pattern' : 'Solo se permiten letras'
+    },
+    'dni' : {
+      'minlength' : 'El campo debe tener al menos 7 caracteres',
+      'maxlength' : 'El campo debe tener maximo 8 caracteres',
+      'required' : 'Ingrese un DNI valido',
+      'pattern' : 'Solo se permiten numeros'
+    },
+    'sexo' : {
+      'required' : 'Seleccione un genero'
+    }
+  };
+
   personaForm = this.fB.group({
     id: <number>0,
-    apellido: 'NC',
-    nombre: 'NC',
-    dni: ['', [Validators.minLength(2), Validators.maxLength(2), Validators.pattern("^[0-9]*$")]],
-    sexo: 'NC',
+    apellido: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern("^[a-zA-Z_-]*$")]],
+    nombre: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(30), Validators.pattern("^[a-zA-Z_-]*$")]],
+    dni: ['', [Validators.required, Validators.minLength(7), Validators.maxLength(8), Validators.pattern("^[0-9]*$")]],
+    sexo: ['', [Validators.required]],
     contactoId: 0,
-    pais: 'NC',
-    provincia: 'NC',
-    departamento: 'NC',
-    localidad: 'NC',
-    calle: 'NC',
-    numero: 0,
-    telefono1: 'NC',
-    telefono2: 'NC',
-    mail: 'NC',
-    estado: <string>'NC',
+    pais: ['', [Validators.required]],
+    provincia: ['', [Validators.required]],
+    departamento: ['', [Validators.required]],
+    localidad: ['', [Validators.required]],
+    calle: ['', [Validators.required]],
+    numero: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    telefono1: ['', [Validators.required, Validators.pattern("^[0-9]*$")]],
+    telefono2: '',
+    mail: ['', [Validators.required, Validators.email]],
+    estado: 'ACTIVO',
   });
 
   constructor(
@@ -80,23 +104,42 @@ export class PersonaNewComponent implements OnInit {
       estado: Boolean(this.personaForm.value.estado),
       contactoDTO: this.contactoDtoAGuardar
       };
-      let respuesta: any;
-      this.personaService.updateOurUpdate(this.personaAGuardar).subscribe((response: any) => {
-        respuesta = response as PersonaFull;
-      });
+      if(this.personaForm.invalid){
+        this.personaForm.markAllAsTouched;
 
-      // Object.entries(this.personaAGuardar).forEach(([key, value]) => {
-      //   console.log(key + " --> "+ value);
-      //   if(key == 'contactoDTO'){
-      //     Object.entries(value).forEach(([key, value]) => {
-      //       console.log(key + " --> "+ value);
-      //     })
-      //   }
-      // });
-    this.cancel();
+        console.log("FORMULARIO INVALIDO");
+      }
+      if(this.personaForm.valid){
+
+        // let respuesta: any;
+        // this.personaService.updateOurUpdate(this.personaAGuardar).subscribe((response: any) => {
+        //   respuesta = response as PersonaFull;
+        // });
+        console.log("no hay errores");
+        // Object.entries(this.personaAGuardar).forEach(([key, value]) => {
+        //   console.log(key + " --> "+ value);
+        //   if(key == 'contactoDTO'){
+        //     Object.entries(value).forEach(([key, value]) => {
+        //       console.log(key + " --> "+ value);
+        //     })
+        //   }
+        // });
+      // this.cancel();
+      }
     }
   
     cancel(){
-      this.router.navigate(['personas/']);
+      this.router.navigate(['personas/']).then(() => {
+        window.location.reload();
+      });
+    };
+    getError(controlName: string): string {
+      let error = '';
+      const control = this.personaForm.get(controlName);
+      if (control?.touched && control.errors){
+        let key = Object.keys(control.errors)[0];
+        error = this.mensajesErrores[controlName][key];
+      }
+      return error;
     }
 }

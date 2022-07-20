@@ -12,6 +12,7 @@ export class PersonaDialogComponent implements OnInit {
 
   persona: PersonaFull;
   estado: string;
+  httpRespuesta: any;
 
   constructor(
     public dialogRef: MatDialogRef<PersonaDialogComponent>,
@@ -33,6 +34,7 @@ export class PersonaDialogComponent implements OnInit {
       (response: any) => {
         this.persona = response as PersonaFull;
         this.resolverEstado(this.persona.estado);
+        console.log(response.status);
       }
     );
   }

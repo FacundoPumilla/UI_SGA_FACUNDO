@@ -143,20 +143,23 @@ export class PersonaEditComponent implements OnInit {
       estado: Boolean(this.personaForm.value.estado),
       contactoDTO: this.contactoDtoAGuardar
       };
-      let respuesta: any;
-      this.personaService.updateOurUpdate(this.personaAGuardar).subscribe((response: any) => {
-        respuesta = response as PersonaFull;
-      });
+      if(this.personaForm.valid){
 
-      // Object.entries(this.personaAGuardar).forEach(([key, value]) => {
-      //   console.log(key + " --> "+ value);
-      //   if(key == 'contactoDTO'){
-      //     Object.entries(value).forEach(([key, value]) => {
-      //       console.log(key + " --> "+ value);
-      //     })
-      //   }
-      // });
-    this.cancel;
+        let respuesta: any;
+        this.personaService.updateOurUpdate(this.personaAGuardar).subscribe((response: any) => {
+          respuesta = response as PersonaFull;
+        });
+  
+        // Object.entries(this.personaAGuardar).forEach(([key, value]) => {
+        //   console.log(key + " --> "+ value);
+        //   if(key == 'contactoDTO'){
+        //     Object.entries(value).forEach(([key, value]) => {
+        //       console.log(key + " --> "+ value);
+        //     })
+        //   }
+        // });
+      this.cancel;
+      }
     }
   
     cancel(){
